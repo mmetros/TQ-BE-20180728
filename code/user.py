@@ -3,10 +3,10 @@ from flask_restful import Resource, reqparse
 
 
 class User:
-    def __init__(self, name, _id, email, password):
+    def __init__(self, _id, name, email, password):
         self.id = _id
         self.name = name
-        self.username = email
+        self.email = email
         self.password = password
 
     @classmethod

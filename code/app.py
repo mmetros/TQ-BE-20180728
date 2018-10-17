@@ -1,8 +1,9 @@
 from flask import Flask
-from flask_restful import Resource, Api
-from flask_jwt import JWT, jwt_required
+from flask_restful import Api
+from flask_jwt import JWT
 
 from security import authenticate, identity
+from venue import Venues
 from user import UserRegister
 
 app = Flask(__name__)
@@ -12,7 +13,9 @@ api = Api(app)
 
 jwt = JWT(app, authenticate, identity) #/auth
 
+
 api.add_resource(UserRegister, '/register')
+api.add_resource(Venues, '/venues')
 
 
 if __name__ == '__main__':
